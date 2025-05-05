@@ -3,199 +3,131 @@ NIM: 231011402254
 Kelas: 04TPLP025
 Mata Kuliah: Data Mining
 
+
+Summary Data Mining (Inti Materi)
+Data Mining adalah proses menggali pola atau informasi penting dari data besar.
+Tujuannya: untuk prediksi, klasifikasi, segmentasi, dan pengambilan keputusan.
+Teknik utama: klasifikasi, klastering, asosiasi, regresi, deteksi anomali.
+Algoritma populer: Decision Tree, KNN, Naive Bayes, K-Means, Apriori, SVM.
+Proses standar: CRISP-DM (dari pemahaman bisnis hingga deployment).
+Dipakai di: bisnis, kesehatan, keuangan, pendidikan, dan media sosial.
+
 1. Konsep Dasar Klasifikasi dalam Data Mining
 Klasifikasi merupakan salah satu teknik utama dalam data mining yang digunakan untuk mengelompokkan atau mengklasifikasikan data ke dalam kelas-kelas tertentu berdasarkan atribut atau karakteristik yang dimiliki oleh data tersebut. Metode ini bekerja berdasarkan pembelajaran dari data historis (training data) untuk kemudian diterapkan pada data baru (testing data), dengan tujuan menghasilkan prediksi yang akurat.
-
 Klasifikasi banyak diaplikasikan pada berbagai bidang, seperti:
-
 Deteksi spam pada email
-
 Diagnosis medis (misalnya, apakah pasien menderita penyakit tertentu berdasarkan gejala)
-
 Analisis kredit macet (untuk memprediksi apakah peminjam akan gagal bayar)
-
 Alur proses klasifikasi umumnya adalah:
-
 Training data → membangun model
-
 Model → digunakan untuk testing
-
 Hasil testing → menghasilkan prediksi
 
 2. Decision Tree (Pohon Keputusan)
 Decision tree adalah model klasifikasi berbentuk struktur pohon yang sangat intuitif dan mudah dipahami. Model ini membuat keputusan dengan cara membagi data berdasarkan fitur-fitur tertentu dalam bentuk percabangan hingga menghasilkan suatu keputusan akhir.
-
 Komponen utama:
-
 Node keputusan: memuat pertanyaan atau kondisi terhadap suatu atribut
-
 Cabang (branch): hasil dari jawaban terhadap kondisi (ya/tidak, tinggi/rendah, dsb.)
-
 Daun (leaf node): hasil akhir dari proses klasifikasi (label kelas)
-
 Algoritma populer:
-
 ID3 (Iterative Dichotomiser 3)
-
 C4.5 (penyempurnaan dari ID3)
-
 CART (Classification and Regression Tree)
-
 Kelebihan decision tree:
-
 Sangat mudah divisualisasikan
-
 Hasilnya dapat dengan mudah diinterpretasi oleh manusia
-
 Contoh aplikasi:
 Menentukan apakah seorang pelanggan akan membeli suatu produk berdasarkan atribut seperti usia, penghasilan, dan status pernikahan.
 
 3. Naïve Bayes
 Naïve Bayes adalah metode klasifikasi yang didasarkan pada Teorema Bayes, dengan asumsi bahwa semua fitur bersifat independen secara kondisional (meskipun ini jarang benar dalam kenyataan).
-
 Meskipun asumsi ini sederhana (oleh karena itu disebut naïve), model ini sangat efektif dalam praktik, khususnya pada:
-
 Klasifikasi teks (contoh: apakah email merupakan spam atau bukan)
-
 Analisis sentimen (positif/negatif)
-
 Filtering email
-
 Keunggulan Naïve Bayes:
-
 Komputasi cepat
-
 Efisien untuk dataset besar
-
 Hasilnya cukup akurat meskipun fitur-fitur sebenarnya tidak independen
 
 4. Dasar-Dasar Python untuk Data Science
 Dalam dunia data science, Python adalah bahasa pemrograman yang paling umum digunakan karena:
-
 Sintaksnya sederhana
-
 Memiliki banyak library pendukung untuk analisis data dan machine learning
-
 Beberapa library penting:
-
 pandas: untuk manipulasi dan analisis data (dataframe)
-
 numpy: untuk operasi numerik dan array multidimensi
-
 matplotlib / seaborn: untuk visualisasi data
-
 scikit-learn: untuk penerapan berbagai algoritma machine learning termasuk klasifikasi, regresi, clustering, dsb.
 
 5. Implementasi Decision Tree dengan Python
 Untuk membangun model pohon keputusan dengan Python, kita bisa menggunakan library scikit-learn. Berikut adalah langkah-langkah dasarnya:
-
 Load dataset:
-
 python
-Salin
-Edit
 from sklearn.datasets import load_iris
 data = load_iris()
 Split data menjadi train dan test:
 
 python
-Salin
-Edit
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, test_size=0.3)
 Membangun model decision tree:
 
 python
-Salin
-Edit
 from sklearn.tree import DecisionTreeClassifier
 clf = DecisionTreeClassifier()
 clf.fit(X_train, y_train)
 Melakukan prediksi dan evaluasi:
 
 python
-Salin
-Edit
 y_pred = clf.predict(X_test)
 from sklearn.metrics import accuracy_score
 print("Akurasi:", accuracy_score(y_test, y_pred))
+
 6. Konsep Forecasting dan SVM/SVR
 Forecasting adalah proses untuk meramalkan atau memprediksi nilai numerik di masa depan. Perbedaannya dengan klasifikasi adalah bahwa output dari forecasting berupa angka kontinu, bukan label diskrit.
-
 Contoh aplikasi forecasting:
-
 Prediksi harga saham
-
 Peramalan cuaca
-
 Estimasi penjualan produk
-
 Support Vector Machine (SVM):
-
 Metode klasifikasi yang bekerja dengan memisahkan kelas menggunakan hyperplane terbaik
-
 Tujuan utamanya adalah memaksimalkan margin antar kelas
-
 Support Vector Regression (SVR):
-
 Turunan dari SVM untuk regresi
-
 Tujuannya adalah membentuk garis prediksi yang tetap dalam batas toleransi error tertentu (ε)
 
 7. Jenis-Jenis Data & Kualitas Data
 Jenis data:
-
 Data kualitatif (deskriptif): seperti warna, status pernikahan
-
 Data kuantitatif (numerik): seperti berat badan, jumlah penghasilan
-
 Atribut kualitas data:
-
 Completeness (kelengkapan): apakah semua data yang dibutuhkan tersedia?
-
 Consistency (konsistensi): apakah data seragam di seluruh dataset?
-
 Accuracy (akurasi): seberapa tepat data menggambarkan kondisi sebenarnya?
-
 Timeliness (keterkinian): apakah data masih relevan dan terbaru?
 
 8. Preprocessing Data
 Preprocessing adalah tahap awal dalam analisis data, untuk mempersiapkan data agar bisa digunakan oleh model machine learning. Langkah-langkahnya meliputi:
-
 Data cleaning: menangani missing value, duplikat, atau kesalahan
-
 Data integration: menggabungkan data dari berbagai sumber
-
 Data transformation: mengubah struktur data, seperti normalisasi
-
 Data reduction: menyederhanakan data tanpa kehilangan informasi penting, contoh: teknik seleksi fitur
 
 9. Teknik Pengukuran Data
 Untuk menganalisis data, kita juga perlu memahami skala pengukuran data:
-
 Nominal: hanya membedakan kategori (contoh: jenis kelamin)
-
 Ordinal: memiliki urutan, tetapi tidak ada informasi jarak (contoh: tingkat pendidikan)
-
 Interval: memiliki jarak yang sama antar nilai, tetapi tidak ada nol mutlak (contoh: suhu)
-
 Rasio: seperti interval, tapi memiliki nol absolut (contoh: berat, tinggi)
 
 10. Clustering (Pengelompokan)
 Clustering adalah teknik dalam data mining yang mengelompokkan data tanpa label ke dalam beberapa grup (cluster) berdasarkan kesamaan data tersebut. Berbeda dengan klasifikasi, clustering termasuk dalam unsupervised learning karena tidak ada label kelas yang diketahui sebelumnya.
-
 Algoritma clustering populer:
-
 K-Means: membagi data ke dalam k cluster berdasarkan jarak (Euclidean distance)
-
 Hierarchical Clustering: membuat dendrogram berdasarkan kemiripan antar data
-
 DBSCAN: mengelompokkan data berdasarkan kepadatan, bagus untuk data yang memiliki bentuk tak beraturan
-
 Contoh penggunaan:
-
 Segmentasi pelanggan
-
 Analisis pasar
-
 Pengelompokan dokumen atau berita
